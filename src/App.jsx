@@ -7,6 +7,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Rent from "./components/Rent/RentComponent";
 import HomePage from "./components/Navbar/HomePage";
 import AppointmentComponent from "./components/Appointment/AppointmentComponent";
+import MaintenanceComponent from "./components/Maintenance/MaintenanceComponent";
+import VehicleComponent from "./components/Vehicle/VehicleComponent";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/rent" element={<Rent />} />
           <Route path="/appointment" element={<AppointmentComponent />} />
+          <Route path="/maintenance" element={<MaintenanceComponent />} />
+          <Route path="/vehicle" element={<VehicleComponent />} />
         </Routes>
       </main>
     </BrowserRouter>
