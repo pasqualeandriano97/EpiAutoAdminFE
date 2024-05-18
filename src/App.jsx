@@ -1,6 +1,7 @@
 import "./App.css";
 import "../custom.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import "react-datepicker/dist/react-datepicker.css";
 import NavBarComponent1 from "../src/components/Navbar/NavBarComponent1";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Rent from "./components/Rent/RentComponent";

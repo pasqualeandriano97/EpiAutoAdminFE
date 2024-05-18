@@ -2,6 +2,9 @@ import Nav from "react-bootstrap/Nav";
 import { useState } from "react";
 import AllAppointments from "./AllAppointments";
 import TodayAppointments from "./TodayAppointments";
+import AppointmentsForDate from "./AppointmentsForDate";
+import AppointmentForId from "./AppointmentForId";
+import AppointmentForUser from "./AppointmentForUser";
 
 const AppointmentComponent = () => {
   const [activeKey, setActiveKey] = useState("all");
@@ -45,7 +48,7 @@ const AppointmentComponent = () => {
         </Nav.Item>
         <Nav.Item>
           <Nav.Link
-            eventKey="plate"
+            eventKey="email"
             className="text-white bg-dark border-bottom"
           >
             Appuntamenti per utente
@@ -54,8 +57,9 @@ const AppointmentComponent = () => {
       </Nav>
       {activeKey === "all" && <AllAppointments />}
       {activeKey === "today" && <TodayAppointments />}
-      {/* {activeKey === "id" && <RentById />}
-      {activeKey === "plate" && <RentForPlate />} */}
+      {activeKey === "date" && <AppointmentsForDate />}
+      {activeKey === "id" && <AppointmentForId />}
+      {activeKey === "email" && <AppointmentForUser />}
     </div>
   );
 };

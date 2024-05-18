@@ -1,20 +1,17 @@
 import { Container, Row, Col, Button } from "react-bootstrap";
+import Form from "react-bootstrap/Form";
 import { useState } from "react";
-import DatePicker from "react-datepicker";
-import { getAppointmentsByDate } from "../../Data/appointment";
+import { getAppointmentsById } from "../../Data/appointment";
 
-const AppointmentsForDate = () => {
+const AppointmentForId = () => {
   const token = window.localStorage.getItem("token");
-  const [appointments, setAppointments] = useState("");
-  const [date, setDate] = useState();
-  const formatter = (string) => {
-    const date = new Date(string);
-    const formattedDate = date.toLocaleDateString("it-IT", {
-      day: "2-digit",
-      month: "2-digit",
-      year: "numeric",
+  const [appointment, setAppointment] = useState("");
+  const [id, setId] = useState("");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    getAppointmentsById(token, id).then((data) => {
+      setAppointment(data);
     });
-    return formattedDate.replace(/\//g, "-");
   };
   function formatDate(dateStr) {
     const date = new Date(dateStr);
@@ -23,36 +20,39 @@ const AppointmentsForDate = () => {
     const year = date.getFullYear();
     return `${day}-${month}-${year}`;
   }
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    getAppointmentsByDate(token, formatter(date)).then((data) => {
-      setAppointments(data);
-    });
-  };
   return (
-    <Container className="mt-3">
-      <Row>
-        <Col className="d-flex justify-content-center align-items-center ">
-          <DatePicker
-            className="bg-light rounded-3 me-2 "
-            selected={date}
-            dateFormat={"dd/MM/yyyy"}
-            onChange={(date) => setDate(date)}
-          />
-          <Button variant="primary" onClick={(e) => handleSubmit(e)}>
-            Cerca
-          </Button>
-        </Col>
-      </Row>
-      {date && (
-        <h3 className="text-center text-white mt-3">
-          Appuntamenti per la data {formatter(date)}
-        </h3>
-      )}
-
-      <Row className="flex-column">
-        {appointments
-          ? appointments.map((appointment) => (
+    <>
+      <Container className="mt-3">
+        <Row className="align-items-center justify-content-center">
+          <Col className="col-6">
+            <Form>
+              <Form.Group
+                className="mb-3"
+                controlId="exampleForm.ControlInput1"
+              >
+                <Form.Label className="text-white text-center ">
+                  Inserisci il codice dell&apos;appuntamento
+                </Form.Label>
+                <Row className="align-items justify-content-center ">
+                  <Col className="col-8">
+                    <Form.Control
+                      type="number"
+                      onChange={(e) => setId(e.target.value)}
+                    />
+                  </Col>
+                  <Col className="col-4">
+                    <Button variant="primary" onClick={(e) => handleSubmit(e)}>
+                      Cerca
+                    </Button>
+                  </Col>
+                </Row>
+              </Form.Group>
+            </Form>
+          </Col>
+        </Row>
+        {appointment ? (
+          <Container className="mt-3">
+            <Row className="flex-column ">
               <Col
                 key={appointment.id}
                 className="text-white my-2  bg-secondary p-3 pb-0 border border-black rounded-3"
@@ -87,11 +87,14 @@ const AppointmentsForDate = () => {
                   </Col>
                 </Row>
               </Col>
-            ))
-          : ""}
-      </Row>
-    </Container>
+            </Row>
+          </Container>
+        ) : (
+          ""
+        )}
+      </Container>
+    </>
   );
 };
 
-export default AppointmentsForDate;
+export default AppointmentForId;

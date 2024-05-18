@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 const TodayAppointments = () => {
   const [appointments, setAppointments] = useState("");
+  const [today, setToday] = useState("");
   const token = window.localStorage.getItem("token");
 
   function formatDate(dateStr) {
@@ -14,15 +15,20 @@ const TodayAppointments = () => {
     return `${day}-${month}-${year}`;
   }
   useEffect(() => {
+    setToday(new Date());
     getTodayAppointments(token).then((data) => {
       setAppointments(data);
     });
   }, []);
   return (
     <>
-      <h3 className="text-center text-white mt-3">
-        Lista di tutti gli appuntamenti
-      </h3>
+      {today && (
+        <h3 className="text-center text-white mt-3">
+          Lista di tutti gli appuntamenti per il {today.getDate()}/
+          {today.getMonth() + 1}/{today.getFullYear()}
+        </h3>
+      )}
+
       <Container className="mt-3">
         <Row className="flex-column ">
           {appointments
