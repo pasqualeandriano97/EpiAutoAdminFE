@@ -20,9 +20,25 @@ const RentForPlate = () => {
     const year = date.getFullYear();
     return `${day}-${month}-${year}`;
   }
+  const translateFuel = (fuel) => {
+    switch (fuel) {
+      case "GASOLINE":
+        return "BENZINA";
+      case "DIESEL":
+        return "DIESEL";
+      case "ELECTRIC":
+        return "ELETTRICA";
+
+      default:
+        return "Errore";
+    }
+  };
 
   return (
     <>
+      <h3 className="text-center text-white mt-3">
+        Lista di tutti i noleggi del veicolo per targa
+      </h3>
       <Container className="mt-3">
         <Row className="align-items-center justify-content-center">
           <Col className="col-6">
@@ -76,7 +92,8 @@ const RentForPlate = () => {
                         {rent.vehicle.brand} {rent.vehicle.model}
                       </p>
                       <p>
-                        {rent.vehicle.fuelType}-{rent.vehicle.year}
+                        {translateFuel(rent.vehicle.fuelType)}-
+                        {rent.vehicle.year}
                       </p>
                     </Col>
                     <Col>

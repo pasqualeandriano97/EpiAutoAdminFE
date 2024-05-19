@@ -23,6 +23,9 @@ const MaintenancesForPlate = () => {
 
   return (
     <>
+      <h3 className="text-center text-white mt-3">
+        Lista di tutte le manutenzioni del veicolo per targa
+      </h3>
       <Container className="mt-3">
         <Row className="align-items-center justify-content-center">
           <Col className="col-6">

@@ -1,5 +1,9 @@
 import Nav from "react-bootstrap/Nav";
 import { useState } from "react";
+import VehicleState from "./VehicleState";
+import RentVehicle from "./RentVehicle";
+import SellVehicle from "./SellVehicle";
+import ReturnVehicle from "./ReturnVehicle";
 
 const VehicleComponent = () => {
   const [activeKey, setActiveKey] = useState("all");
@@ -39,7 +43,7 @@ const VehicleComponent = () => {
         </Nav.Item>
         <Nav.Item>
           <Nav.Link
-            eventKey="plate"
+            eventKey="return"
             className="text-white bg-dark border-bottom"
           >
             Ritira veicolo
@@ -67,11 +71,11 @@ const VehicleComponent = () => {
           </Nav.Link>
         </Nav.Item>
       </Nav>
-      {/* {activeKey === "state" && <AllRents />}
-      {activeKey === "rent" && <TodayRents />}
-      {activeKey === "sell" && <RentById />}
-      {activeKey === "return" && <RentForPlate />}
-      {activeKey === "add" && <RentForPlate />}
+      {activeKey === "state" && <VehicleState />}
+      {activeKey === "rent" && <RentVehicle />}
+      {activeKey === "sell" && <SellVehicle />}
+      {activeKey === "return" && <ReturnVehicle />}
+      {/* {activeKey === "add" && <RentForPlate />}
       {activeKey === "image" && <RentForPlate />}
       {activeKey === "modify" && <RentForPlate />} */}
     </div>

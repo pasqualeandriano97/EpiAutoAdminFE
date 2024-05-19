@@ -32,65 +32,70 @@ const MaintenancePost = () => {
     postMaintenance(token, formData);
   };
   return (
-    <Container className="mt-3">
-      <Row className="align-items-center justify-content-center">
-        <Col className="col-8">
-          <Row className="align-items-center justify-content-center">
-            <Col className="d-flex flex-column justify-content-center align-items-center">
-              <h5 className="text-white mt-2">Codice della manutenzione</h5>
-              <Form>
-                <Form.Group>
-                  <Form.Control
-                    type="number"
-                    onChange={(e) => setId(e.target.value)}
-                  />
-                </Form.Group>
-              </Form>
-            </Col>
-            <Col className="d-flex flex-column justify-content-center align-items-center mt-3 ">
-              <h5 className="text-white ">Data di fine del manutenzione</h5>
-              <DatePicker
-                className="bg-light rounded-3 "
-                selectsEnd
-                selected={newDate}
-                dateFormat={"dd/MM/yyyy"}
-                onChange={(date) => setNewDate(date)}
-              />
-            </Col>
+    <>
+      <h3 className="text-center text-white mt-3">
+        Modifica data di fine manutenzione
+      </h3>
+      <Container className="mt-3">
+        <Row className="align-items-center justify-content-center">
+          <Col className="col-8">
+            <Row className="align-items-center justify-content-center">
+              <Col className="d-flex flex-column justify-content-center align-items-center">
+                <h5 className="text-white mt-2">Codice della manutenzione</h5>
+                <Form>
+                  <Form.Group>
+                    <Form.Control
+                      type="number"
+                      onChange={(e) => setId(e.target.value)}
+                    />
+                  </Form.Group>
+                </Form>
+              </Col>
+              <Col className="d-flex flex-column justify-content-center align-items-center mt-3 ">
+                <h5 className="text-white ">Data di fine del manutenzione</h5>
+                <DatePicker
+                  className="bg-light rounded-3 "
+                  selectsEnd
+                  selected={newDate}
+                  dateFormat={"dd/MM/yyyy"}
+                  onChange={(date) => setNewDate(date)}
+                />
+              </Col>
+            </Row>
             <Row className="d-flex justify-content-center mt-4">
-              <Col className="col-4">
+              <Col className="d-flex justify-content-center align-items-center">
                 <Button variant="secondary" onClick={(e) => handleSummary(e)}>
                   Riepilogo
                 </Button>
               </Col>
             </Row>
-          </Row>
-        </Col>
-      </Row>
-      {formData && (
-        <Row className="justify-content-center">
-          <Col className="col-8 text-white my-2  bg-secondary p-3 pb-0 border border-black rounded-3 ">
-            <h3 className="text-center mb-4">Riepilogo manutenzione</h3>
-            <Row>
-              <Col className="d-flex flex-column justify-content-center align-items-center">
-                <h5>Targa:</h5>
-                <p>{newMaintenance.vehiclePlate}</p>
-              </Col>
-              <Col className="d-flex flex-column justify-content-center align-items-center">
-                <h5>Periodo:</h5>
-                <p>Dal: {formatDate(newMaintenance.startDate)}</p>
-                <p>Al: {formData.endDate}</p>
-              </Col>
-            </Row>
-            <Col className="d-flex align-items-center justify-content-center pb-3">
-              <Button variant="primary" onClick={(e) => handleSave(e)}>
-                Salva
-              </Button>
-            </Col>
           </Col>
         </Row>
-      )}
-    </Container>
+        {formData && (
+          <Row className="justify-content-center">
+            <Col className="col-8 text-white my-2  bg-secondary p-3 pb-0 border border-black rounded-3 ">
+              <h3 className="text-center mb-4">Riepilogo manutenzione</h3>
+              <Row>
+                <Col className="d-flex flex-column justify-content-center align-items-center">
+                  <h5>Targa:</h5>
+                  <p>{newMaintenance.vehiclePlate}</p>
+                </Col>
+                <Col className="d-flex flex-column justify-content-center align-items-center">
+                  <h5>Periodo:</h5>
+                  <p>Dal: {formatDate(newMaintenance.startDate)}</p>
+                  <p>Al: {formData.endDate}</p>
+                </Col>
+              </Row>
+              <Col className="d-flex align-items-center justify-content-center pb-3">
+                <Button variant="primary" onClick={(e) => handleSave(e)}>
+                  Salva
+                </Button>
+              </Col>
+            </Col>
+          </Row>
+        )}
+      </Container>
+    </>
   );
 };
 

@@ -32,7 +32,7 @@ const AllMainenances = () => {
   return (
     <>
       <h3 className="text-center text-white mt-3">
-        Lista di tutti gli appuntamenti
+        Lista di tutte le manutenzioni
       </h3>
       <Container className="mt-3">
         <Row className="flex-column ">
