@@ -4,6 +4,9 @@ import VehicleState from "./VehicleState";
 import RentVehicle from "./RentVehicle";
 import SellVehicle from "./SellVehicle";
 import ReturnVehicle from "./ReturnVehicle";
+import AddVehicle from "./AddVehicle";
+import AddVehicleImage from "./AddVehicleImage";
+import UpdateVehicle from "./UpdateVehicle";
 
 const VehicleComponent = () => {
   const [activeKey, setActiveKey] = useState("all");
@@ -75,9 +78,9 @@ const VehicleComponent = () => {
       {activeKey === "rent" && <RentVehicle />}
       {activeKey === "sell" && <SellVehicle />}
       {activeKey === "return" && <ReturnVehicle />}
-      {/* {activeKey === "add" && <RentForPlate />}
-      {activeKey === "image" && <RentForPlate />}
-      {activeKey === "modify" && <RentForPlate />} */}
+      {activeKey === "add" && <AddVehicle />}
+      {activeKey === "image" && <AddVehicleImage />}
+      {activeKey === "modify" && <UpdateVehicle />}
     </div>
   );
 };

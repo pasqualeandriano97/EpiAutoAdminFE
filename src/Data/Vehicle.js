@@ -109,7 +109,7 @@ export const saveVehicle = (token, body) => {
     });
 };
 
-export const AddVehicleImage = (token, plate, image) => {
+export const addVehicleImage = (token, plate, image) => {
   return fetch("http://localhost:3001/vehicle/plate?plate=" + plate, {
     method: "PATCH",
     headers: {
