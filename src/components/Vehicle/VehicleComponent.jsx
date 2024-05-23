@@ -7,13 +7,14 @@ import ReturnVehicle from "./ReturnVehicle";
 import AddVehicle from "./AddVehicle";
 import AddVehicleImage from "./AddVehicleImage";
 import UpdateVehicle from "./UpdateVehicle";
+import SearchVehicle from "./SearchVehicle";
 
 const VehicleComponent = () => {
   const [activeKey, setActiveKey] = useState("all");
 
   return (
     <div style={{ marginTop: "100px" }}>
-      <h1 className="ms-4 text-white">Pagina dei noleggi</h1>
+      <h1 className="ms-4 text-white">Pagina del parco auto</h1>
       <Nav
         variant="tabs"
         activeKey={activeKey}
@@ -73,6 +74,14 @@ const VehicleComponent = () => {
             Modifica info veicolo
           </Nav.Link>
         </Nav.Item>
+        <Nav.Item>
+          <Nav.Link
+            eventKey="search"
+            className="text-white bg-dark border-bottom"
+          >
+            Cerca veicoli
+          </Nav.Link>
+        </Nav.Item>
       </Nav>
       {activeKey === "state" && <VehicleState />}
       {activeKey === "rent" && <RentVehicle />}
@@ -81,6 +90,7 @@ const VehicleComponent = () => {
       {activeKey === "add" && <AddVehicle />}
       {activeKey === "image" && <AddVehicleImage />}
       {activeKey === "modify" && <UpdateVehicle />}
+      {activeKey === "search" && <SearchVehicle />}
     </div>
   );
 };

@@ -20,6 +20,36 @@ export const getVehicleForPlate = (token, plate) => {
     });
 };
 
+export const getByVehicleName = (token, brand, model, page) => {
+  return fetch(
+    "http://localhost:3001/vehicle/name?brand=" +
+      brand +
+      "&model=" +
+      model +
+      "&page=" +
+      page,
+    {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    }
+  )
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        return response.json().then((data) => {
+          throw new Error(data.message);
+        });
+      }
+    })
+    .catch((error) => {
+      alert(error.message);
+    });
+};
+
 export const rentVehicle = (token, plate) => {
   return fetch(`http://localhost:3001/vehicle/rent?vehicle=${plate}`, {
     method: "PATCH",

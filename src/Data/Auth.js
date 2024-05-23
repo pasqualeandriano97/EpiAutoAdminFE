@@ -8,6 +8,7 @@ export const register = (payload) => {
   })
     .then((response) => {
       if (response.ok) {
+        alert("Utente registrato con successo");
         return response.json();
       } else {
         return response.json().then((data) => {

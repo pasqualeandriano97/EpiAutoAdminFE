@@ -1,6 +1,6 @@
 import { Container, Row, Col, Button } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
-import { getRentsforId } from "../../Data/Rent";
+import { getRentsforId, deleteRent } from "../../Data/Rent";
 import { useState } from "react";
 
 const RentById = () => {
@@ -11,6 +11,12 @@ const RentById = () => {
     e.preventDefault();
     getRentsforId(token, id).then((data) => {
       setRent(data);
+    });
+  };
+  const handleDelete = () => {
+    deleteRent(token, id).then((data) => {
+      alert(data.message);
+      setRent("");
     });
   };
   function formatDate(dateStr) {
@@ -98,6 +104,11 @@ const RentById = () => {
                     {rent.user.name} {rent.user.surname}
                   </p>
                   <p className="mb-0">{rent.user.email}</p>
+                </Col>
+                <Col className="d-flex justify-content-center align-items-center">
+                  <Button variant="primary" onClick={handleDelete}>
+                    Elimina
+                  </Button>
                 </Col>
               </Row>
             </Col>

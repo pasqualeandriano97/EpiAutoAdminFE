@@ -1,17 +1,14 @@
-import Nav from "react-bootstrap/Nav";
-import AllRents from "./AllRents";
-import TodayRents from "./TodayRents";
-import RentById from "./RentById";
-import RentForPlate from "./RentForPlate";
-import RentByDate from "./RentByDate";
+import { Nav } from "react-bootstrap";
 import { useState } from "react";
+import RegisterUser from "./RegisterUser";
+import CreateUserRent from "./CreateUseRent";
 
-const Rent = () => {
+const UserComponent = () => {
   const [activeKey, setActiveKey] = useState("all");
 
   return (
     <div style={{ marginTop: "100px" }}>
-      <h1 className="ms-4 text-white">Pagina dei noleggi</h1>
+      <h1 className="ms-4 text-white">Pagina degli utenti</h1>
       <Nav
         variant="tabs"
         activeKey={activeKey}
@@ -20,7 +17,7 @@ const Rent = () => {
       >
         <Nav.Item>
           <Nav.Link eventKey="all" className="text-white bg-dark border-bottom">
-            Tutti i noleggi
+            Crea un utente
           </Nav.Link>
         </Nav.Item>
         <Nav.Item>
@@ -28,7 +25,7 @@ const Rent = () => {
             eventKey="today"
             className="text-white bg-dark border-bottom"
           >
-            Noleggi Oggi
+            Prenota Noleggio
           </Nav.Link>
         </Nav.Item>
         <Nav.Item>
@@ -53,13 +50,13 @@ const Rent = () => {
           </Nav.Link>
         </Nav.Item>
       </Nav>
-      {activeKey === "all" && <AllRents />}
-      {activeKey === "today" && <TodayRents />}
-      {activeKey === "id" && <RentById />}
-      {activeKey === "plate" && <RentForPlate />}
-      {activeKey === "date" && <RentByDate />}
+      {activeKey === "all" && <RegisterUser />}
+      {activeKey === "today" && <CreateUserRent />}
+      {/* {activeKey === "id" && <RentById />}
+        {activeKey === "plate" && <RentForPlate />}
+        {activeKey === "date" && <RentByDate />} */}
     </div>
   );
 };
 
-export default Rent;
+export default UserComponent;

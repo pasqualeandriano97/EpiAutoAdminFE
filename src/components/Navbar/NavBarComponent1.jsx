@@ -93,6 +93,9 @@ function NavbarComponent() {
               <Link to="/vehicle" className="nav-link">
                 Parco Auto
               </Link>
+              <Link to="/user" className="nav-link">
+                Utente
+              </Link>
             </Nav>
             {!token ? (
               <Nav>

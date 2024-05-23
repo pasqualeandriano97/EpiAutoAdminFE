@@ -9,7 +9,7 @@ const AddVehicleImage = () => {
   const [vehicle, setVehicle] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    addVehicleImage(token, plate, imageUrl).then((data) => {
+    addVehicleImage(token, plate.toUpperCase(), imageUrl).then((data) => {
       setVehicle(data);
       console.log(vehicle);
     });

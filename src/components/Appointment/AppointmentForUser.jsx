@@ -10,7 +10,11 @@ const AppointmentForUser = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     getAppointmentsByUser(token, email).then((data) => {
-      setAppointment(data);
+      if (data.length === 0) {
+        alert("L'utente non ha ancora prenotato nessun appuntamento");
+      } else {
+        setAppointment(data);
+      }
     });
   };
   function formatDate(dateStr) {

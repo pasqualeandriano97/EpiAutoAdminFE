@@ -9,6 +9,7 @@ import HomePage from "./components/Navbar/HomePage";
 import AppointmentComponent from "./components/Appointment/AppointmentComponent";
 import MaintenanceComponent from "./components/Maintenance/MaintenanceComponent";
 import VehicleComponent from "./components/Vehicle/VehicleComponent";
+import UserComponent from "./components/User/UserComponent";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/appointment" element={<AppointmentComponent />} />
           <Route path="/maintenance" element={<MaintenanceComponent />} />
           <Route path="/vehicle" element={<VehicleComponent />} />
+          <Route path="/user" element={<UserComponent />} />
         </Routes>
       </main>
     </BrowserRouter>
