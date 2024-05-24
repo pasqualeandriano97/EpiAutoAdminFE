@@ -107,3 +107,58 @@ export const getAppointmentsByUser = (token, email) => {
       alert(error.message);
     });
 };
+
+export const getSummary = (token, plate, email, body) => {
+  return fetch(
+    "http://localhost:3001/appointment/admin?email=" +
+      email +
+      "&plate=" +
+      plate,
+    {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    }
+  )
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        return response.json().then((data) => {
+          throw new Error(data.message);
+        });
+      }
+    })
+    .catch((error) => {
+      alert(error.message);
+    });
+};
+
+export const saveAppointment = (token, userId, payload) => {
+  return fetch(
+    "http://localhost:3001/appointment/admin/save?userId=" + userId,
+    {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    }
+  )
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        return response.json().then((data) => {
+          throw new Error(data.message);
+        });
+      }
+    })
+    .catch((error) => {
+      alert(error.message);
+    });
+};

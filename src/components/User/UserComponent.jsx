@@ -2,6 +2,7 @@ import { Nav } from "react-bootstrap";
 import { useState } from "react";
 import RegisterUser from "./RegisterUser";
 import CreateUserRent from "./CreateUseRent";
+import CreateUserAppointment from "./CreateUserAppointment";
 
 const UserComponent = () => {
   const [activeKey, setActiveKey] = useState("all");
@@ -30,31 +31,13 @@ const UserComponent = () => {
         </Nav.Item>
         <Nav.Item>
           <Nav.Link eventKey="id" className="text-white bg-dark border-bottom">
-            Noleggio per codice
-          </Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link
-            eventKey="plate"
-            className="text-white bg-dark border-bottom"
-          >
-            Noleggi per targa
-          </Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link
-            eventKey="date"
-            className="text-white bg-dark border-bottom"
-          >
-            Noleggi per data
+            Prenota Appuntamento
           </Nav.Link>
         </Nav.Item>
       </Nav>
       {activeKey === "all" && <RegisterUser />}
       {activeKey === "today" && <CreateUserRent />}
-      {/* {activeKey === "id" && <RentById />}
-        {activeKey === "plate" && <RentForPlate />}
-        {activeKey === "date" && <RentByDate />} */}
+      {activeKey === "id" && <CreateUserAppointment />}
     </div>
   );
 };

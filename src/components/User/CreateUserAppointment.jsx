@@ -1,12 +1,10 @@
 import { Container, Row, Col, Button, Form, Modal } from "react-bootstrap";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
-import { getPreventive, saveRent } from "../../Data/Rent";
+import { getSummary, saveAppointment } from "../../Data/appointment";
 
-const CreateUserRent = () => {
+const CreateUserAppointment = () => {
   const [show1, setShow1] = useState(false);
-  const [startDate, setStartDate] = useState();
-  const [endDate, setEndDate] = useState();
   const [date1, setDate1] = useState();
   const [plate, setPlate] = useState("");
   const [email, setEmail] = useState("");
@@ -16,15 +14,6 @@ const CreateUserRent = () => {
     setShow1(true);
   };
   const handleClose = () => setShow1(false);
-  const formatter = (string) => {
-    const date = new Date(string);
-    const formattedDate = date.toLocaleDateString("it-IT", {
-      day: "2-digit",
-      month: "2-digit",
-      year: "numeric",
-    });
-    return formattedDate.replace(/\//g, "-");
-  };
   const dataObject = new Date(date1);
   const formattedDate = dataObject.toLocaleDateString("it-IT", {
     day: "2-digit",
@@ -54,11 +43,9 @@ const CreateUserRent = () => {
   };
   const handlePreventive = (e) => {
     e.preventDefault();
-    getPreventive(token, plate, email, {
-      startDate: formatter(startDate),
-      endDate: formatter(endDate),
+    getSummary(token, plate, email, {
       date: formattedDate.replace(/\//g, "-"),
-      startHour: hour,
+      hour: hour,
     }).then((data) => {
       setPreventive(data);
     });
@@ -66,15 +53,13 @@ const CreateUserRent = () => {
   };
   const handleSave = (e) => {
     e.preventDefault();
-    saveRent(token, preventive.user.id, {
-      startDate: formatter(startDate),
-      endDate: formatter(endDate),
+    saveAppointment(token, preventive.user.id, {
       date: formattedDate.replace(/\//g, "-"),
-      time: hour,
+      hour: hour,
       vehicle: preventive.vehicle.plate,
     }).then(() => {
       handleClose();
-      alert("Noleggio salvato con successo");
+      alert("Appuntamento salvato con successo");
       setPreventive("");
     });
   };
@@ -108,30 +93,6 @@ const CreateUserRent = () => {
           </Col>
         </Col>
         <Row className="d-flex justify-content-center row-cols-1 mt-3">
-          <Col className="d-flex flex-column justify-content-center align-items-center">
-            <p className="text-white mt-2">Data di inizio del noleggio</p>
-            <DatePicker
-              className="bg-light rounded-3 "
-              selectsStart
-              selected={startDate}
-              dateFormat={"dd/MM/yyyy"}
-              onChange={(date) => setStartDate(date)}
-              startDate={startDate}
-            />
-          </Col>
-          <Col className="d-flex flex-column justify-content-center align-items-center mt-3 ">
-            <p className="text-white ">Data di fine del noleggio</p>
-            <DatePicker
-              className="bg-light rounded-3 "
-              selectsEnd
-              selected={endDate}
-              dateFormat={"dd/MM/yyyy"}
-              onChange={(date) => setEndDate(date)}
-              endDate={endDate}
-              startDate={startDate}
-              minDate={startDate}
-            />
-          </Col>
           <Col className="d-flex flex-column justify-content-center align-items-center mt-3 ">
             <p className="text-white ">Data e ora dell&apos;appuntamento</p>
             <DatePicker
@@ -154,7 +115,7 @@ const CreateUserRent = () => {
               className="border border-radius"
               onClick={handlePreventive}
             >
-              Preventivo
+              Riepilogo
             </Button>
           </Col>
         </Row>
@@ -178,14 +139,11 @@ const CreateUserRent = () => {
                 <p>{preventive.vehicle.type.toUpperCase()}</p>
               </div>
             </div>
-            <h5>Noleggio</h5>
-            <p>Data inizio Noleggio: {formatDate(preventive.startDate)}</p>
-            <p>Data fine Noleggio: {formatDate(preventive.endDate)}</p>
+            <h5>Appuntamento</h5>
             <p>Data dell&apos;appuntamento: {formatDate(preventive.date)}</p>
-            <p>Ora dell&apos;appuntamento: {preventive.time}</p>
+            <p>Ora dell&apos;appuntamento: {preventive.hour}</p>
           </Modal.Body>
           <Modal.Footer className="d-flex justify-content-between align-items-center">
-            <h5>Prezzo: {preventive.price} &euro;</h5>
             <div>
               <Button
                 variant="secondary"
@@ -207,4 +165,4 @@ const CreateUserRent = () => {
   );
 };
 
-export default CreateUserRent;
+export default CreateUserAppointment;
