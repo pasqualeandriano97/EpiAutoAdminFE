@@ -1,11 +1,14 @@
 export const getAppointments = (token) => {
-  return fetch("http://localhost:3001/appointment", {
-    method: "GET",
-    headers: {
-      Authorization: `Bearer ${token}`,
-      "Content-Type": "application/json",
-    },
-  })
+  return fetch(
+    "https://epiauto-andrianopasquale-b63eda7e.koyeb.app/appointment",
+    {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    }
+  )
     .then((response) => {
       if (response.ok) {
         return response.json();
@@ -21,13 +24,16 @@ export const getAppointments = (token) => {
 };
 
 export const getTodayAppointments = (token) => {
-  return fetch("http://localhost:3001/appointment/today", {
-    method: "GET",
-    headers: {
-      Authorization: `Bearer ${token}`,
-      "Content-Type": "application/json",
-    },
-  })
+  return fetch(
+    "https://epiauto-andrianopasquale-b63eda7e.koyeb.app/appointment/today",
+    {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    }
+  )
     .then((response) => {
       if (response.ok) {
         return response.json();
@@ -43,13 +49,17 @@ export const getTodayAppointments = (token) => {
 };
 
 export const getAppointmentsByDate = (token, date) => {
-  return fetch("http://localhost:3001/appointment/date?date=" + date, {
-    method: "GET",
-    headers: {
-      Authorization: `Bearer ${token}`,
-      "Content-Type": "application/json",
-    },
-  })
+  return fetch(
+    "https://epiauto-andrianopasquale-b63eda7e.koyeb.app/appointment/date?date=" +
+      date,
+    {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    }
+  )
     .then((response) => {
       if (response.ok) {
         return response.json();
@@ -65,13 +75,16 @@ export const getAppointmentsByDate = (token, date) => {
 };
 
 export const getAppointmentsById = (token, id) => {
-  return fetch("http://localhost:3001/appointment/" + id, {
-    method: "GET",
-    headers: {
-      Authorization: `Bearer ${token}`,
-      "Content-Type": "application/json",
-    },
-  })
+  return fetch(
+    "https://epiauto-andrianopasquale-b63eda7e.koyeb.app/appointment/" + id,
+    {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    }
+  )
     .then((response) => {
       if (response.ok) {
         return response.json();
@@ -87,13 +100,17 @@ export const getAppointmentsById = (token, id) => {
 };
 
 export const getAppointmentsByUser = (token, email) => {
-  return fetch("http://localhost:3001/appointment/user?email=" + email, {
-    method: "GET",
-    headers: {
-      Authorization: `Bearer ${token}`,
-      "Content-Type": "application/json",
-    },
-  })
+  return fetch(
+    "https://epiauto-andrianopasquale-b63eda7e.koyeb.app/appointment/user?email=" +
+      email,
+    {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    }
+  )
     .then((response) => {
       if (response.ok) {
         return response.json();
@@ -110,7 +127,7 @@ export const getAppointmentsByUser = (token, email) => {
 
 export const getSummary = (token, plate, email, body) => {
   return fetch(
-    "http://localhost:3001/appointment/admin?email=" +
+    "https://epiauto-andrianopasquale-b63eda7e.koyeb.app/appointment/admin?email=" +
       email +
       "&plate=" +
       plate,
@@ -139,7 +156,8 @@ export const getSummary = (token, plate, email, body) => {
 
 export const saveAppointment = (token, userId, payload) => {
   return fetch(
-    "http://localhost:3001/appointment/admin/save?userId=" + userId,
+    "https://epiauto-andrianopasquale-b63eda7e.koyeb.app/appointment/admin/save?userId=" +
+      userId,
     {
       method: "POST",
       headers: {

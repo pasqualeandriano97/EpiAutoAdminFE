@@ -44,3 +44,11 @@
 .root {
   background-color: #242424;
 }
+
+.image {
+  background-image: url(../public/homePageAdmin.png);
+  height: calc(100vh - 100px);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
