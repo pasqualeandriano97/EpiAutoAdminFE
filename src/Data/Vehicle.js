@@ -1,15 +1,13 @@
+const baseUrl = "https://andrianopasquale-andrianopasquale-13cce7cc.koyeb.app/";
+
 export const getVehicleForPlate = (token, plate) => {
-  return fetch(
-    "https://epiauto-andrianopasquale-b63eda7e.koyeb.app/vehicle/plate?plate=" +
-      plate,
-    {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-    }
-  )
+  return fetch(baseUrl + "vehicle/plate?plate=" + plate, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+  })
     .then((response) => {
       if (response.ok) {
         return response.json();
@@ -26,7 +24,8 @@ export const getVehicleForPlate = (token, plate) => {
 
 export const getByVehicleName = (token, brand, model, page) => {
   return fetch(
-    "https://epiauto-andrianopasquale-b63eda7e.koyeb.app/vehicle/name?brand=" +
+    baseUrl +
+      "vehicle/name?brand=" +
       brand +
       "&model=" +
       model +
@@ -55,16 +54,13 @@ export const getByVehicleName = (token, brand, model, page) => {
 };
 
 export const rentVehicle = (token, plate) => {
-  return fetch(
-    `https://epiauto-andrianopasquale-b63eda7e.koyeb.app/vehicle/rent?vehicle=${plate}`,
-    {
-      method: "PATCH",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-    }
-  )
+  return fetch(baseUrl + `vehicle/rent?vehicle=${plate}`, {
+    method: "PATCH",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+  })
     .then((response) => {
       if (response.ok) {
         return response.json();
@@ -80,17 +76,13 @@ export const rentVehicle = (token, plate) => {
 };
 
 export const sellVehicle = (token, plate) => {
-  return fetch(
-    "https://epiauto-andrianopasquale-b63eda7e.koyeb.app/vehicle/sell?vehicle=" +
-      plate,
-    {
-      method: "PATCH",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-    }
-  )
+  return fetch(baseUrl + "vehicle/sell?vehicle=" + plate, {
+    method: "PATCH",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+  })
     .then((response) => {
       if (response.ok) {
         return response.json();
@@ -106,17 +98,13 @@ export const sellVehicle = (token, plate) => {
 };
 
 export const returnVehicle = (token, plate) => {
-  return fetch(
-    "https://epiauto-andrianopasquale-b63eda7e.koyeb.app/vehicle/return?vehicle=" +
-      plate,
-    {
-      method: "PATCH",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-    }
-  )
+  return fetch(baseUrl + "vehicle/return?vehicle=" + plate, {
+    method: "PATCH",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+  })
     .then((response) => {
       if (response.ok) {
         return response.json();
@@ -132,7 +120,7 @@ export const returnVehicle = (token, plate) => {
 };
 
 export const saveVehicle = (token, body) => {
-  return fetch("https://epiauto-andrianopasquale-b63eda7e.koyeb.app/vehicle", {
+  return fetch(baseUrl + "vehicle", {
     method: "POST",
     headers: {
       Authorization: `Bearer ${token}`,
@@ -155,18 +143,14 @@ export const saveVehicle = (token, body) => {
 };
 
 export const addVehicleImage = (token, plate, image) => {
-  return fetch(
-    "https://epiauto-andrianopasquale-b63eda7e.koyeb.app/vehicle/plate?plate=" +
-      plate,
-    {
-      method: "PATCH",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(image),
-    }
-  )
+  return fetch(baseUrl + "vehicle/plate?plate=" + plate, {
+    method: "PATCH",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(image),
+  })
     .then((response) => {
       if (response.ok) {
         return response.json();
@@ -182,18 +166,14 @@ export const addVehicleImage = (token, plate, image) => {
 };
 
 export const updateVehicle = (token, body) => {
-  return fetch(
-    "https://epiauto-andrianopasquale-b63eda7e.koyeb.app/vehicle/plate?plate=" +
-      body.plate,
-    {
-      method: "PUT",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(body),
-    }
-  )
+  return fetch(baseUrl + "vehicle/plate?plate=" + body.plate, {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
+  })
     .then((response) => {
       if (response.ok) {
         return response.json();
@@ -209,7 +189,7 @@ export const updateVehicle = (token, body) => {
 };
 
 export const refreshVehicle = (token) => {
-  return fetch("https://epiauto-andrianopasquale-b63eda7e.koyeb.app/vehicle", {
+  return fetch(baseUrl + "vehicle", {
     method: "PATCH",
     headers: {
       Authorization: `Bearer ${token}`,
