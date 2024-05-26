@@ -35,6 +35,8 @@ const TodayRents = () => {
                     <Col>
                       <h5>Targa:</h5>
                       <p>{rent.vehicle.plate}</p>
+                      <h5>Codice:</h5>
+                      <p>{rent.id}</p>
                     </Col>
                     <Col>
                       <h5>Veicolo:</h5>
