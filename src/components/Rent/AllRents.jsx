@@ -73,7 +73,7 @@ const AllRents = () => {
             : ""}
         </Row>
       </Container>
-      <div className="d-flex justify-content-center align-items-center  mb-5">
+      <div className="d-flex justify-content-center align-items-center  pb-5">
         {firstPage ? (
           ""
         ) : (
@@ -85,7 +85,7 @@ const AllRents = () => {
             <i className="bi bi-arrow-left-circle"></i>
           </Button>
         )}
-        <p className="mx-3 mt-2  text-secondary">{page + 1}</p>
+        <p className="mx-3 mt-2  text-light">{page + 1}</p>
         {lastPage ? (
           ""
         ) : (

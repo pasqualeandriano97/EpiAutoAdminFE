@@ -17,7 +17,7 @@ function App() {
       <header>
         <NavBarComponent1 />
       </header>
-      <main className="root">
+      <main className="bg">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/rent" element={<Rent />} />

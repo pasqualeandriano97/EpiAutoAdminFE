@@ -10,7 +10,7 @@ const Rent = () => {
   const [activeKey, setActiveKey] = useState("all");
 
   return (
-    <div style={{ marginTop: "100px" }}>
+    <div style={{ paddingTop: "100px" }}>
       <h1 className="ms-4 text-white">Pagina dei noleggi</h1>
       <Nav
         variant="tabs"

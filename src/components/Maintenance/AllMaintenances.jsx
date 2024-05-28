@@ -63,7 +63,7 @@ const AllMainenances = () => {
             : ""}
         </Row>
       </Container>
-      <div className="d-flex justify-content-center align-items-center  mb-5">
+      <div className="d-flex justify-content-center align-items-center  pb-5">
         {firstPage ? (
           ""
         ) : (

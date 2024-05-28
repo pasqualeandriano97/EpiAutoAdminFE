@@ -151,7 +151,7 @@ const SearchVehicle = () => {
         </Container>
         {vehicles && (
           <div className="d-block">
-            <Col className="d-flex justify-content-center align-items-center  mb-5">
+            <Col className="d-flex justify-content-center align-items-center  pb-5">
               {firstPage ? (
                 ""
               ) : (
