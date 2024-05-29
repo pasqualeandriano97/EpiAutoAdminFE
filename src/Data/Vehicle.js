@@ -200,8 +200,10 @@ export const refreshVehicle = (token) => {
       if (response.ok) {
         return response.json();
       } else {
-        return response.json().then((data) => {
-          throw new Error(data.message);
+        return response.json().then(() => {
+          alert(
+            "Effettua la registrazione e contatta 'andrianopasquale97@gmail.com' per ottenere un account Admin"
+          );
         });
       }
     })

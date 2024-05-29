@@ -81,21 +81,25 @@ function NavbarComponent() {
               <Link to="/" className="nav-link ">
                 Home
               </Link>
-              <Link to="/rent" className="nav-link">
-                Noleggi
-              </Link>
-              <Link to="/appointment" className="nav-link">
-                Appuntamenti
-              </Link>
-              <Link to="/maintenance" className="nav-link">
-                Manutenzioni
-              </Link>
-              <Link to="/vehicle" className="nav-link">
-                Parco Auto
-              </Link>
-              <Link to="/user" className="nav-link">
-                Utente
-              </Link>
+              {token && (
+                <>
+                  <Link to="/rent" className="nav-link">
+                    Noleggi
+                  </Link>
+                  <Link to="/appointment" className="nav-link">
+                    Appuntamenti
+                  </Link>
+                  <Link to="/maintenance" className="nav-link">
+                    Manutenzioni
+                  </Link>
+                  <Link to="/vehicle" className="nav-link">
+                    Parco Auto
+                  </Link>
+                  <Link to="/user" className="nav-link">
+                    Utente
+                  </Link>
+                </>
+              )}
             </Nav>
             {!token ? (
               <Nav>
