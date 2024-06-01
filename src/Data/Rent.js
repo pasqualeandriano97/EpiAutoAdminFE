@@ -1,7 +1,7 @@
 const baseUrl = "https://andrianopasquale-andrianopasquale-13cce7cc.koyeb.app/";
 
-export const getRents = (token) => {
-  return fetch(baseUrl + "rent", {
+export const getRents = (token, page) => {
+  return fetch(baseUrl + "rent?page=" + page, {
     method: "GET",
     headers: {
       Authorization: `Bearer ${token}`,

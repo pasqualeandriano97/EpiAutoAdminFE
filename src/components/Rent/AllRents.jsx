@@ -22,7 +22,7 @@ const AllRents = () => {
     return `${day}-${month}-${year}`;
   }
   useEffect(() => {
-    getRents(token).then((data) => {
+    getRents(token, page).then((data) => {
       setRents(data.content);
       setFirstPage(data.first);
       setLastPage(data.last);
