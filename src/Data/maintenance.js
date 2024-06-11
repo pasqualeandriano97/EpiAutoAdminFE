@@ -1,4 +1,4 @@
-const baseUrl = "https://andrianopasquale-andrianopasquale-13cce7cc.koyeb.app/";
+import { baseUrl } from "./apiUrl";
 
 export const getMaintenances = (token) => {
   return fetch(baseUrl + "maintenance", {
