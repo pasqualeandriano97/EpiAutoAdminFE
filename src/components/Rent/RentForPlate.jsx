@@ -48,7 +48,7 @@ const RentForPlate = () => {
                 controlId="exampleForm.ControlInput1"
               >
                 <Form.Label className="text-white text-center ">
-                  Inserisci la terga del veicolo
+                  Inserisci la targa del veicolo
                 </Form.Label>
                 <Row className="align-items justify-content-center ">
                   <Col className="col-8">

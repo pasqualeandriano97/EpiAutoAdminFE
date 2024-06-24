@@ -30,6 +30,9 @@ const AddVehicleImage = () => {
   };
   return (
     <Container className="mt-3">
+      <h3 className="text-center text-white mt-3">
+        Aggiungi l&apos;immagine ad un veicolo
+      </h3>
       <Row className="align-items-center justify-content-center">
         <Col className="col-6">
           <Form>

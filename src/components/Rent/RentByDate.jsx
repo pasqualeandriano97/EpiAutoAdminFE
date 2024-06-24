@@ -32,7 +32,11 @@ const RentByDate = () => {
 
   return (
     <Container className="mt-3">
+      <h3 className="text-center text-white mt-3">
+        Lista di tutti i noleggi per data
+      </h3>
       <Row>
+        <Col className="col-12 text-center text-white mt-3"></Col>
         <Col className="d-flex justify-content-center align-items-center ">
           <DatePicker
             className="bg-light rounded-3 me-2 "

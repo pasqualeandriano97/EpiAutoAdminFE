@@ -41,7 +41,7 @@ const MaintenanceSave = () => {
             <Row className="align-items-center justify-content-center">
               <Col className="d-flex flex-column justify-content-center align-items-center">
                 <h5 className="text-white mt-2">
-                  Data di inizio del manutenzione
+                  Data di inizio della manutenzione
                 </h5>
                 <DatePicker
                   className="bg-light rounded-3 "
@@ -53,7 +53,7 @@ const MaintenanceSave = () => {
                 />
               </Col>
               <Col className="d-flex flex-column justify-content-center align-items-center mt-3 ">
-                <h5 className="text-white ">Data di fine del manutenzione</h5>
+                <h5 className="text-white ">Data di fine della manutenzione</h5>
                 <DatePicker
                   className="bg-light rounded-3 "
                   selectsEnd
